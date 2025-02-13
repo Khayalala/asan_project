@@ -1,0 +1,70 @@
+header{
+    display: flex;
+    flex-direction: column;
+}
+header .upperHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 15px;
+    background-color: #3e76d1;
+}
+
+header .upperHeader .intro{
+    display: flex;
+    align-items: center;
+}
+
+header .upperHeader .intro .asanLogo{
+    height: 40px;
+    width: 150px;
+    cursor: pointer;
+}
+header .upperHeader .intro p{
+    color: aliceblue;
+    font-size: 12px;
+}
+header .upperHeader .userInfo{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+header .upperHeader .userInfo span{
+    color: aliceblue;
+    font-size: 12px;
+}
+header .upperHeader .userInfo .exitSvg{
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+header nav{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+header nav .upperNav{
+    display: flex;
+    align-items: center;
+    background-color: aliceblue;
+    height: 25px;
+    padding-left: 7px;
+}
+header nav .hamburgerSvg{
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+
+header nav .navbar{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 111px;
+    height: 100vw;
+    padding-left: 10px;
+    background-color:aliceblue;
+    font-size: 12px;
+    
+}
