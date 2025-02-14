@@ -1,12 +1,15 @@
-import Header from "./components/Header"
-import Dropdown from "./components/Dropdown"
-function App() {
-  return (
-    <>
-      <Header></Header>
-      <Dropdown></Dropdown>
-    </>
-  )
-}
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HallsPage from "./components/HallsPage";
+import Modal from "./components/Modal";
 
-export default App
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HallsPage />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
