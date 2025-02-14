@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import "../assets/styles/hallsPage.css";
-import { fetchList } from "../../api";
-import axios from "axios";
-const Modal = ({ onClose }) => {
+import { fetchList, submitNewHall } from "../../api";
+
+const Modal = ({ onClose, setSubmitState }) => {
   const [options, setOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(
     "Xidmət mərkəzini seçin"
@@ -12,15 +12,11 @@ const Modal = ({ onClose }) => {
   useEffect(() => {
     fetchList().then((data) => setOptions(data));
   }, []);
-  
-  const submitNewHall = async () => {
-    axios.post("http://localhost:5001/content", {
-      name: textInput,
-      branchName: selectedOption,
-      status: true,
-    });
-    onClose();
-  };
+  const handleSubmit = async ()=>{
+    await submitNewHall(textInput, selectedOption)
+    onClose()
+    setSubmitState(prev=>!prev)
+  }
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -44,7 +40,7 @@ const Modal = ({ onClose }) => {
         />
         <div className="modal-actions">
           <button onClick={onClose}>Ləğv et</button>
-          <button className="confirm" onClick={submitNewHall}>
+          <button className="confirm" onClick={handleSubmit}>
             Təsdiqlə
           </button>
         </div>

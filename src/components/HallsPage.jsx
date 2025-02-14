@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import "../assets/styles/hallsPage.css";
-import { fetchContent } from "../../api";
-import axios from "axios";
+import { fetchContent, deleteHall } from "../../api";
+
 const HallsPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [halls, setHalls] = useState([]);
+  const [deleteStatus, setDeleteStatus] = useState(true);
+  const [submitState, setSubmitState] = useState(true);
+
   useEffect(() => {
     fetchContent().then((data) => setHalls(data));
-  }, []);
-  const deleteHall = async (id) => {
-    axios
-      .delete(`http://localhost:5001/content/${id}`)
-      .then(() => console.log("Hall deleted successfully"))
-      .catch((error) => console.log("Error deleting the hall", error));
+  }, [deleteStatus, submitState]);
+  const handleDelete = async (id) => {
+    try {
+      await deleteHall(id); 
+      setDeleteStatus(prev => !prev); 
+    } catch (error) {
+      console.error("Error deleting hall:", error);
+    }
   };
   return (
     <div className="halls-container">
@@ -38,10 +43,19 @@ const HallsPage = () => {
                 <span className="status">Aktiv</span>
               </td>
               <td>
-                <button id={hall.id} className="edit">
+                <button
+                  id={hall.id}
+                  className="edit"
+                  onClick={() => setShowModal(true)}
+                >
                   Redaktə et
                 </button>
-                <button onClick={() => deleteHall(hall.id)} className="delete">
+                <button
+                  onClick={() => {
+                    handleDelete(hall.id)
+                  }}
+                  className="delete"
+                >
                   Sil
                 </button>
               </td>
@@ -52,7 +66,8 @@ const HallsPage = () => {
       <button className="create-hall" onClick={() => setShowModal(true)}>
         Yeni Zal Yarat
       </button>
-      {showModal && <Modal onClose={() => setShowModal(false)} />}
+      {showModal && <Modal onClose={() => {
+        setShowModal(false)}} setSubmitState={setSubmitState} />}
     </div>
   );
 };

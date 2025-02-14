@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import axios from "axios";
 const api = axios.create({
   baseURL: "http://localhost:5001",
@@ -25,3 +26,20 @@ export const fetchContent = async () => {
       console.log("Content fetch attempt completed");
     });
 };
+export const submitNewHall = async (name, branchName) => {
+  return api.post("content", {
+    name,
+    branchName,
+    status: true,
+  }) 
+  
+};
+export const deleteHall = async (id) => {
+  return api
+    .delete(`content/${id}`)
+    .then(() => console.log("Hall deleted successfully"))
+    .catch((error) => console.log("Error deleting the hall", error))
+    .finally(() => console.log("Delete attempt completed."));
+};
+
+
