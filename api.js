@@ -8,9 +8,20 @@ export const fetchList = async () => {
     .get("list")
     .then((response) => response.data)
     .catch((error) => {
-      console.log("Error fetching data", error);
+      console.log("Error fetching list", error);
     })
     .finally(() => {
-      console.log("Fetch attempt completed");
+      console.log("List fetch attempt completed");
+    });
+};
+export const fetchContent = async () => {
+  return api
+    .get("content")
+    .then((response) => response.data)
+    .catch((error) => {
+      console.log("Error fetching content", error);
+    })
+    .finally(() => {
+      console.log("Content fetch attempt completed");
     });
 };

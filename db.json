@@ -1,21 +1,66 @@
 {
   "content": [
     {
-      "id": "",
-      "name": "",
-      "branchName": "",
+      "id": "0e0f",
+      "name": "Zal No 111",
+      "branchName": "1 saylı Bakı ASAN xidmət mərkəzi",
+      "status": true
+    },
+    {
+      "id": "0420",
+      "name": "Zal No 222",
+      "branchName": "2 saylı Bakı ASAN xidmət mərkəzi",
+      "status": true
+    },
+    {
+      "id": "706c",
+      "name": "Zal No 333",
+      "branchName": "3 saylı Bakı ASAN Xidmət mərkəzi",
+      "status": true
+    },
+    {
+      "id": "2321",
+      "name": "Zal No 444",
+      "branchName": "Xidmət mərkəzini seçin",
       "status": true
     }
   ],
   "list": [
-    { "id": 1, "name": "ABAD Publik Hüquqi Şəxs" },
-    { "id": 2, "name": "ASAN Xidmət Mərkəzləri" },
-    { "id": 3, "name": "1 saylı Bakı ASAN xidmət mərkəzi" },
-    { "id": 4, "name": "2 saylı Bakı ASAN xidmət mərkəzi" },
-    { "id": 5, "name": "3 saylı Bakı ASAN Xidmət mərkəzi" },
-    { "id": 6, "name": "4 saylı Bakı ASAN xidmət mərkəzi" },
-    { "id": 7, "name": "5 saylı Bakı ASAN xidmət mərkəzi" },
-    { "id": 8, "name": "6 saylı Bakı ASAN xidmət mərkəzi" },
-    { "id": 9, "name": "7 saylı Bakı ASAN xidmət mərkəzi" }
+    {
+      "id": "1",
+      "name": "ABAD Publik Hüquqi Şəxs"
+    },
+    {
+      "id": "2",
+      "name": "ASAN Xidmət Mərkəzləri"
+    },
+    {
+      "id": "3",
+      "name": "1 saylı Bakı ASAN xidmət mərkəzi"
+    },
+    {
+      "id": "4",
+      "name": "2 saylı Bakı ASAN xidmət mərkəzi"
+    },
+    {
+      "id": "5",
+      "name": "3 saylı Bakı ASAN Xidmət mərkəzi"
+    },
+    {
+      "id": "6",
+      "name": "4 saylı Bakı ASAN xidmət mərkəzi"
+    },
+    {
+      "id": "7",
+      "name": "5 saylı Bakı ASAN xidmət mərkəzi"
+    },
+    {
+      "id": "8",
+      "name": "6 saylı Bakı ASAN xidmət mərkəzi"
+    },
+    {
+      "id": "9",
+      "name": "7 saylı Bakı ASAN xidmət mərkəzi"
+    }
   ]
 }
