@@ -1,33 +1,15 @@
 {
   "content": [
     {
-      "id": "e5e7",
-      "name": "Zal No 111",
-      "branchName": "ABAD Publik Hüquqi Şəxs",
+      "id": "7e2a",
+      "name": "jkjkkjkj",
+      "branchId": "2",
       "status": true
     },
     {
-      "id": "b40a",
-      "name": "Zal No 333",
-      "branchName": "3 saylı Bakı ASAN Xidmət mərkəzi",
-      "status": true
-    },
-    {
-      "id": "aa37",
-      "name": "Zal No 444",
-      "branchName": "4 saylı Bakı ASAN xidmət mərkəzi",
-      "status": true
-    },
-    {
-      "id": "7f4d",
-      "name": "Zal no 777",
-      "branchName": "7 saylı Bakı ASAN xidmət mərkəzi",
-      "status": true
-    },
-    {
-      "id": "b862",
-      "name": "Zal no 555",
-      "branchName": "5 saylı Bakı ASAN xidmət mərkəzi",
+      "id": "5b3c",
+      "name": "zal no 111",
+      "branchId": "2",
       "status": true
     }
   ],

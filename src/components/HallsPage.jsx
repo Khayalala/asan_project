@@ -1,25 +1,39 @@
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import "../assets/styles/hallsPage.css";
-import { fetchContent, deleteHall } from "../../api";
+import { fetchContent, deleteHall, fetchList } from "../../api";
+import ToggleButton from "./ToggleButton";
 
 const HallsPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [halls, setHalls] = useState([]);
+  const [options, setOptions] = useState([]);
   const [deleteStatus, setDeleteStatus] = useState(true);
   const [submitState, setSubmitState] = useState(true);
+  const [editHallId, setEditHallId] = useState(null);
 
   useEffect(() => {
     fetchContent().then((data) => setHalls(data));
+    fetchList().then((data) => setOptions(data));
   }, [deleteStatus, submitState]);
+
   const handleDelete = async (id) => {
     try {
-      await deleteHall(id); 
-      setDeleteStatus(prev => !prev); 
+      const isConfirmed = confirm("Bu zalı silmək istəyinizə əminsiniz?");
+      if (!isConfirmed) return;
+
+      await deleteHall(id);
+      setDeleteStatus((prev) => !prev);
     } catch (error) {
       console.error("Error deleting hall:", error);
     }
   };
+
+  const handleEdit = (hall) => {
+    setEditHallId(hall.id);
+    setShowModal(true);
+  };
+
   return (
     <div className="halls-container">
       <h2>Zallar: {halls.length}</h2>
@@ -34,40 +48,49 @@ const HallsPage = () => {
           </tr>
         </thead>
         <tbody>
-          {halls.map((hall, index) => (
-            <tr key={hall.id}>
-              <td>{index + 1}</td>
-              <td>{hall.name}</td>
-              <td>{hall.branchName}</td>
-              <td>
-                <span className="status">Aktiv</span>
-              </td>
-              <td>
-                <button
-                  id={hall.id}
-                  className="edit"
-                  onClick={() => setShowModal(true)}
-                >
-                  Redaktə et
-                </button>
-                <button
-                  onClick={() => {
-                    handleDelete(hall.id)
-                  }}
-                  className="delete"
-                >
-                  Sil
-                </button>
-              </td>
-            </tr>
-          ))}
+          {halls.map((hall, index) => {
+            const branch = options.find(
+              (option) => option.id === hall.branchId
+            );
+            return (
+              <tr key={hall.id}>
+                <td>{index + 1}</td>
+                <td>{hall.name}</td>
+                <td>{branch ? branch.name : "Naməlum"}</td>
+                <td>
+                  <ToggleButton hall={hall} setSubmitState={setSubmitState} />
+                </td>
+                <td>
+                  <button onClick={() => handleEdit(hall)} className="edit">
+                    Redaktə et
+                  </button>
+                  <button
+                    onClick={() => handleDelete(hall.id)}
+                    className="delete"
+                  >
+                    Sil
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <button className="create-hall" onClick={() => setShowModal(true)}>
         Yeni Zal Yarat
       </button>
-      {showModal && <Modal onClose={() => {
-        setShowModal(false)}} setSubmitState={setSubmitState} />}
+      {showModal && (
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+            setEditHallId(null);
+          }}
+          setSubmitState={setSubmitState}
+          editHallId={editHallId}
+          halls={halls}
+          options={options}
+        />
+      )}
     </div>
   );
 };

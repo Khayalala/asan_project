@@ -26,13 +26,12 @@ export const fetchContent = async () => {
       console.log("Content fetch attempt completed");
     });
 };
-export const submitNewHall = async (name, branchName) => {
+export const submitNewHall = async (name, branchId) => {
   return api.post("content", {
     name,
-    branchName,
+    branchId,
     status: true,
-  }) 
-  
+  });
 };
 export const deleteHall = async (id) => {
   return api
@@ -42,4 +41,13 @@ export const deleteHall = async (id) => {
     .finally(() => console.log("Delete attempt completed."));
 };
 
-
+export const editHall = async (id, name, branchId, status) => {
+  return api
+    .patch(`content/${id}`, {
+      name,
+      branchId,
+      status, 
+    })
+    .then(() => console.log("Hall updated successfully"))
+    .catch((err) => console.log("Error editing hall", err));
+};
