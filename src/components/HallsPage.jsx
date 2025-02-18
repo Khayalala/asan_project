@@ -36,7 +36,7 @@ const HallsPage = () => {
 
   return (
     <div className="halls-container">
-      <h2>Zallar: {halls.length}</h2>
+      <h2 className="zalHeading">Zallar: {halls.length}</h2>
       <table>
         <thead>
           <tr>
@@ -60,7 +60,7 @@ const HallsPage = () => {
                 <td>
                   <ToggleButton hall={hall} setSubmitState={setSubmitState} />
                 </td>
-                <td>
+                <td className="operations">
                   <button onClick={() => handleEdit(hall)} className="edit">
                     Redaktə et
                   </button>

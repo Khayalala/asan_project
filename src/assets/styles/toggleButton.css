@@ -10,7 +10,7 @@
 /* The toggle switch wrapper */
 .toggle-switch {
   position: relative;
-  width: 50px;
+  width: 70px;
   height: 25px;
 }
 
@@ -49,12 +49,12 @@
 
 /* When checked, change background */
 .toggle-switch input:checked + .slider {
-  background-color: #4caf50;
+  background-color: #007BFF;
 }
 
 /* Move the circle when checked */
 .toggle-switch input:checked + .slider::before {
-  transform: translateX(24px);
+  transform: translateX(44px);
 }
 
 /* Toggle Label */

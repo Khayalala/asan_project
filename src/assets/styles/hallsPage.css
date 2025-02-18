@@ -3,7 +3,17 @@
   margin: auto;
   text-align: center;
 }
-
+h2.zalHeading{
+  background-color: #007BFF;
+  color: #ffffff;
+  font-size: 33px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 11px;
+  
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -20,7 +30,36 @@ td {
 th {
   background: #f4f4f4;
 }
-
+.operations{
+  display: flex;
+  justify-content: center;
+  gap: 11px;
+}
+.edit{
+  background-color: #28A745;
+  color: #ffffff;
+  width: 77px;
+  cursor: pointer;
+}
+.edit:hover{
+  background-color: #218d3a;
+}
+.edit:active{
+  background-color: #1b712f;
+}
+.delete{
+  background-color: #FF5733;
+  color: #ffffff;
+  height: 27px;
+  width: 40px;
+  cursor: pointer;
+}
+.delete:hover{
+  background-color: #e9502e;
+}
+.delete:active{
+  background-color: #c54326;
+}
 .status {
   color: green;
   font-weight: bold;
