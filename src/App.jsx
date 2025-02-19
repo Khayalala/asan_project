@@ -11,7 +11,7 @@ const App = () => {
         <Route path="/" element={<HallsPage />} />
         <Route path="/active" element={<ActiveHalls/>} />
         <Route path="/waiting" element={<WaitingHalls/>}  />
-        <Route path="/rejected" element={<h1 style={{color: "black", textAlign: "center"}}>İmtinalar Page</h1>} />
+        <Route path="/rejected" element={<h2 className="zalHeading">İmtinalar Page</h2>} />
       </Routes>
     </Router>
   );
